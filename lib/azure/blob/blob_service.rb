@@ -20,6 +20,17 @@ module Azure
   module Blob
     class BlobService < Service::StorageService
 
+      @@BLOB_ALLOWED_OPTION_KEYS = [
+        :blob_content_type,
+        :blob_content_encoding,
+        :blob_content_language,
+        :blob_content_md5,
+        :blob_cache_control,
+        :blob_content_length,
+        :sequence_number_action,
+        :sequence_number
+      ]
+
       def initialize
         super()
         @host = Azure.config.storage_blob_host
@@ -941,6 +952,10 @@ module Azure
       #
       # Returns nil on success.
       def set_blob_properties(container, blob, options={})
+        # check that the options being privided are all valid
+        unknown_keys = ((options.keys)-@@BLOB_ALLOWED_OPTION_KEYS)
+        raise "UNKNOWN keys in options #{unknown_keys}" unless unknown_keys.empty?
+
         query = { "comp" => "properties" }
         query["timeout"] = options[:timeout].to_s if options[:timeout]
         uri = blob_uri(container, blob, query)

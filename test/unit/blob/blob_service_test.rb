@@ -1248,7 +1248,11 @@ describe Azure::Blob::BlobService do
           end
 
           it "does not modify the request headers when provided an unknown value" do
-            subject.set_blob_properties container_name, blob_name, { :unknown_key => "some_value" }
+            err = assert_raises(RuntimeError) do
+              subject.set_blob_properties container_name, blob_name, { :unknown_key => "some_value" }
+            end
+
+            assert_match /UNKNOWN keys in options \[.*\]/, err.message
           end
         end
       end
