@@ -950,6 +950,27 @@ module Azure
       #
       # See http://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
       #
+      # ==== Examples
+      #
+      # Simple Example
+      #
+      #    azure_blob_service = Azure::BlobService.new
+      #
+      #    options = {
+      #      :blob_cache_control => nil,
+      #      :blob_content_type => "image/jpeg",
+      #      :blob_content_md5 => "contentmd5value",
+      #      :blob_content_encoding => nil,
+      #      :blob_content_language => nil
+      #    }
+      #
+      #    azure_blob_service.set_blob_properties(
+      #      "container-name",
+      #      "blob_name",
+      #      options
+      #    )
+      #
+      #
       # Returns nil on success.
       def set_blob_properties(container, blob, options={})
         # check that the options being privided are all valid
