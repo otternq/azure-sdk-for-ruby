@@ -165,13 +165,17 @@ There are two ways you can set up the connections:
     ```
   * Service Bus: not supported
   * Service Management: not supported
+
 ## Run Test
+
 You can use the following commands to run:
 * all the tests: ``rake test``
 * a specific suite of tests: ``rake test:integration:blob``
 * one particular test file: ``ruby -I"lib:test" "<path of the test file>"``
+
 # Usage
 **For more examples, please see the [Microsoft Azure Ruby Developer Center](http://www.azure.com/en-us/develop/ruby)**
+
 ## Storage
 
 ### Blobs
@@ -428,7 +432,7 @@ options = {
 }
 virtual_machine_service.create_virtual_machine(params,options)
 
-#API usage to add new roles under cloud service creating VM 
+#API usage to add new roles under cloud service creating VM
 #API add_role create multiple roles under the same cloud service. Atleast a single deployment should be created under a hosted service.
 params = {
   :vm_name => 'vm_name',
