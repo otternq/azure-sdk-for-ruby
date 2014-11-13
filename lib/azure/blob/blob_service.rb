@@ -874,12 +874,12 @@ module Azure
       # ==== Options
       #
       # Accepted key/value pairs in options parameter are:
-      # * +:content_type+             - String. Content type for the blob. Will be saved with blob.
-      # * +:content_encoding+         - String. Content encoding for the blob. Will be saved with blob.
-      # * +:content_language+         - String. Content language for the blob. Will be saved with blob.
-      # * +:content_md5+              - String. Content MD5 for the blob. Will be saved with blob.
-      # * +:cache_control+            - String. Cache control for the blob. Will be saved with blob.
-      # * +:content_length+           - Integer. Resizes a page blob to the specified size. If the specified 
+      # * +:blob_content_type+             - String. Content type for the blob. Will be saved with blob.
+      # * +:blob_content_encoding+         - String. Content encoding for the blob. Will be saved with blob.
+      # * +:blob_content_language+         - String. Content language for the blob. Will be saved with blob.
+      # * +:blob_content_md5+              - String. Content MD5 for the blob. Will be saved with blob.
+      # * +:blob_cache_control+            - String. Cache control for the blob. Will be saved with blob.
+      # * +:blob_content_length+           - Integer. Resizes a page blob to the specified size. If the specified 
       #   value is less than the current size of the blob, then all pages above 
       #   the specified value are cleared. This property cannot be used to change 
       #   the size of a block blob. Setting this property for a block blob returns 
@@ -931,11 +931,11 @@ module Azure
       #   not provided for a given property when at least one of the properties listed below is set, then that property will be
       #   cleared for the blob.
       # 
-      #     * :cache_control
-      #     * :content_type
-      #     * :content_md5
-      #     * :content_encoding
-      #     * :content_language
+      #     * :blob_cache_control
+      #     * :blob_content_type
+      #     * :blob_content_md5
+      #     * :blob_content_encoding
+      #     * :blob_content_language
       #
       # See http://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
       #
